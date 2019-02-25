@@ -158,6 +158,13 @@
           <artifactId>jetty-maven-plugin</artifactId>
           <version>8.0.0.M1</version>
         </plugin>
+               
+        <plugin>
+                  <groupId>org.sonarsource.scanner.maven</groupId>
+                 <artifactId>sonar-maven-plugin</artifactId>
+                  <version>3.6.0.1398</version>
+      </plugin>
+               
       </plugins>
     </pluginManagement>
   </build>
@@ -216,5 +223,22 @@
   <prerequisites>
     <maven>3.0.3</maven>
   </prerequisites>
+         
+<profiles>
+         <profile>
+         <id>sonar</id>
+         <activation>
+         <activeByDefault>true</activeByDefault>
+         </activation>
+         <properties>
+<!-- Optional URL to server. Default value is http://localhost:9000 -->
+         <sonar.host.url>
+         http://sonarqube.westindia.cloudapp.azure.com:9000/sonarqube
+         </sonar.host.url>
+         <sonar.login>2e3ccef83ab56d29c0f8802d4c1c554645dc037e</sonar.login>
+
+         </properties>
+         </profile>
+         </profiles>
 
 </project>
